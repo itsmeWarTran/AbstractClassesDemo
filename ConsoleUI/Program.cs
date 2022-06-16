@@ -10,6 +10,8 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+
+ 
             /*
              * Todo follow all comments!! 
              */
@@ -32,6 +34,7 @@ namespace ConsoleUI
             */
 
             // Create a list of Vehicle called vehicles
+            var Vehicles = new List<Vehicle>();
 
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
@@ -46,8 +49,47 @@ namespace ConsoleUI
 
             // Call each of the drive methods for one car and one motorcycle
 
-            #endregion            
-            Console.ReadLine();
+            #endregion
+
+
+            Car Mercades = new Car();
+            Mercades.year = 2018;
+            Mercades.make = "Mercades";
+            Mercades.model = "New one";
+            Mercades.HasTrunk = true;
+            Vehicles.Add(Mercades);
+
+            Motercycle standard = new Motercycle();
+            standard.year = 2005;
+            standard.make = "standard";
+            standard.model = "sports";
+            standard.HasSideCart = false;
+            Vehicles.Add(standard);
+
+            Car BMW = new Car();
+            BMW.year = 2020;
+            BMW.make = "BMW";
+            BMW.model = "M3";
+            BMW.HasTrunk = false;
+            Vehicles.Add(BMW);
+
+            Motercycle goKart = new Motercycle();
+            goKart.year = 2017;
+            goKart.make = "Go Kart";
+            goKart.model = "Mario";
+            goKart.HasSideCart = true;
+            Vehicles.Add(goKart);
+
+
+            foreach(var c in Vehicles)
+            {
+                Console.WriteLine($"The model {c.model} was made in {c.year} from the brand {c.make}.");
+                c.DriveAbstract();
+                c.DriveVirtual();
+                Console.WriteLine("");
+            }
         }
-    }
+
+
+        }
 }
